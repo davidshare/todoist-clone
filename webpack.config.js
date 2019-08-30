@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	mode: "development",
 	entry: [
-		'./src/app.js'
+		'./src/index.js'
 	],
 	watch: true,
 	watchOptions: {
@@ -27,8 +27,9 @@ module.exports = {
 			 * This template will be used when generating the final html file
 			 * if skiped, it will generate a simple html file.
 			*/
-			title: "Webpack starter",
-			template: path.resolve('./src/index.html')
+			title: "Todoist clone",
+			template: path.resolve('./public/index.html'),
+			filename: "./index.html"
 		}),
 		new webpack.HotModuleReplacementPlugin() // this will help the webserver run in hot mode
 	],
@@ -63,7 +64,7 @@ module.exports = {
 				use: {
 					loader: "file-loader",
 					options: {
-						outpath: './images',
+						outpath: './public/images',
 						/* on build, webpack generates a hash for the image names.
 						This line makes sure that it does not */
 						name: "[name].[ext]",
